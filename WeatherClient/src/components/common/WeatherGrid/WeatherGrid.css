@@ -1,0 +1,72 @@
+/* ═══════════════════════════════
+   WeatherGrid.css — WeatherFlow
+═══════════════════════════════ */
+.wg-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    animation: card-in 0.6s 0.3s ease both;
+}
+
+@keyframes card-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.wg-card {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 18px;
+    padding: 18px 16px 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background 0.18s, transform 0.18s;
+}
+.wg-card:hover {
+    background: rgba(255,255,255,0.24);
+    transform: translateY(-2px);
+}
+
+.wg-card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.wg-card-icon { font-size: 13px; opacity: 0.75; }
+.wg-card-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 500;
+    color: rgba(255,255,255,0.52);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.wg-card-value {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px; font-weight: 700;
+    color: #ffffff;
+    line-height: 1.05;
+}
+.wg-card-unit {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+}
+
+.wg-card-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+    .wg-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .wg-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .wg-card-value { font-size: 22px; }
+}

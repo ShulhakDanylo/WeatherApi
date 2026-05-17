@@ -1,0 +1,97 @@
+/* ══════════════════════════════════════
+   Dashboard.css — WeatherFlow
+   Мультисторінковий dashboard з анімаціями
+══════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ══════════════════════════
+   WRAPPER + GRADIENT
+══════════════════════════ */
+.dash-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'DM Sans', sans-serif;
+    background:
+            radial-gradient(ellipse 120% 60% at 50%  0%,   #29B6F6 0%, transparent 60%),
+            radial-gradient(ellipse 100% 50% at 80%  20%,  #4FC3F7 0%, transparent 55%),
+            radial-gradient(ellipse  80% 60% at 20%  70%,  #26C6DA 0%, transparent 55%),
+            radial-gradient(ellipse  90% 50% at 50% 100%,  #00BCD4 0%, transparent 60%),
+            #0288D1;
+    overflow: hidden; /* clip slide animations */
+}
+
+/* ── Main area ── */
+.dash-main {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.dash-main::-webkit-scrollbar { width: 4px; }
+.dash-main::-webkit-scrollbar-track { background: transparent; }
+.dash-main::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 2px; }
+
+/* ══════════════════════════
+   PAGE SLIDE ANIMATION
+   right = новий приходить справа
+   left  = новий приходить зліва
+══════════════════════════ */
+.dash-page-anim {
+    flex: 1;
+    will-change: transform, opacity;
+}
+
+.dash-page-anim--right {
+    animation: slide-from-right 0.40s cubic-bezier(0.32, 0, 0.67, 0) both;
+}
+.dash-page-anim--left {
+    animation: slide-from-left 0.40s cubic-bezier(0.32, 0, 0.67, 0) both;
+}
+.dash-page-anim--none {
+    animation: page-fadein 0.50s ease both;
+}
+
+@keyframes slide-from-right {
+    from { opacity: 0; transform: translateX(60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-from-left {
+    from { opacity: 0; transform: translateX(-60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes page-fadein {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Content container ── */
+.dash-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── Footer ── */
+.dash-footer {
+    text-align: center;
+    padding: 12px 24px 20px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+}
+.dash-footer p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: rgba(255,255,255,0.40);
+}
+
+@media (max-width: 600px) {
+    .dash-content { padding: 0 12px 24px; gap: 12px; }
+}

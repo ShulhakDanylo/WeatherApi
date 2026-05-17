@@ -1,0 +1,62 @@
+/* ═══════════════════════════════
+   HeroWeather.css — WeatherFlow
+═══════════════════════════════ */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 52px 24px 36px;
+    animation: hero-fadeUp 0.7s ease both;
+}
+
+@keyframes hero-fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.hero-location-icon { flex-shrink: 0; }
+
+.hero-city {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.95);
+    letter-spacing: 0.1px;
+}
+
+/* Giant temperature number */
+.hero-temp {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(96px, 18vw, 140px);
+    font-weight: 200;
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -6px;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    margin-bottom: 4px;
+    animation: hero-fadeUp 0.8s 0.1s ease both;
+}
+
+.hero-condition {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 6px;
+    animation: hero-fadeUp 0.8s 0.18s ease both;
+}
+
+.hero-range {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.70);
+    animation: hero-fadeUp 0.8s 0.24s ease both;
+}

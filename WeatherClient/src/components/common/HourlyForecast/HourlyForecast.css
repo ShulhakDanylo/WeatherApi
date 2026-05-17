@@ -1,0 +1,82 @@
+/* ═══════════════════════════════════
+   HourlyForecast.css — WeatherFlow
+═══════════════════════════════════ */
+.hourly-card {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    padding: 20px 22px 18px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: card-in 0.6s 0.1s ease both;
+}
+@keyframes card-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hourly-summary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 18px;
+    line-height: 1.5;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+/* ── GRID: рівномірно на всю ширину ── */
+.hourly-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Розподіляє елементи рівномірно від краю до краю */
+    align-items: center;
+    gap: 15px;
+    padding: 5px 10px;
+    list-style: none; /* Про всяк випадок, якщо це тег <ul> */
+    margin: 0;
+}
+
+/* ── Each hour item ── */
+.hourly-item {
+    flex: 1;             /* Змушує всі елементи мати однакову ширину і ділити простір */
+    max-width: 70px;     /* Щоб вони не ставали занадто широкими на великих екранах */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;            /* Робить гарні однакові відступи між часом, іконкою та градусами */
+    padding: 10px 6px;   /* Внутрішні відступи, щоб ховер виглядав красиво */
+    border-radius: 12px; /* Закруглення для ефекту ховеру */
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.hourly-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px); 
+}
+
+/* Current hour highlight */
+.hourly-item--now {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+}
+.hourly-item--now:hover { background: rgba(255,255,255,0.28); }
+
+.hourly-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.70);
+    white-space: nowrap;
+}
+.hourly-item--now .hourly-label { color: #fff; font-weight: 600; }
+
+.hourly-icon { font-size: 22px; line-height: 1; }
+
+.hourly-temp {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.92);
+}
+.hourly-item--now .hourly-temp { color: #fff; font-weight: 600; }

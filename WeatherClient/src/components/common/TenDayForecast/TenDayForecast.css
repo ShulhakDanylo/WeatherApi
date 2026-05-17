@@ -1,0 +1,108 @@
+/* ══════════════════════════════════
+   TenDayForecast.css — WeatherFlow
+══════════════════════════════════ */
+.tdf-card {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    padding: 20px 22px 6px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: card-in 0.6s 0.2s ease both;
+}
+
+@keyframes card-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Title ── */
+.tdf-title-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+.tdf-title-icon { font-size: 14px; opacity: 0.75; }
+.tdf-title-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: rgba(255,255,255,0.58);
+    letter-spacing: 0.9px;
+}
+
+/* ── Row ── */
+.tdf-row {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    /* day | icon | low | bar | high | chevron */
+    grid-template-columns: 64px 28px 30px 1fr 30px 22px;
+    gap: 10px;
+    padding: 12px 8px;
+    background: none;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.18s;
+    text-align: left;
+    margin-bottom: 2px;
+}
+.tdf-row:hover { background: rgba(255,255,255,0.10); }
+.tdf-row--active {
+    background: rgba(255,255,255,0.14);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+}
+.tdf-row--active .tdf-chevron svg {
+    transform: rotate(180deg);
+}
+.tdf-chevron svg { transition: transform 0.22s ease; display: block; }
+
+/* Cells */
+.tdf-day {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: rgba(255,255,255,0.90);
+}
+.tdf-icon { font-size: 20px; text-align: center; }
+.tdf-low, .tdf-high {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 400;
+    color: rgba(255,255,255,0.60);
+    text-align: center;
+}
+.tdf-high { color: rgba(255,255,255,0.90); font-weight: 500; }
+
+/* Temp bar */
+.tdf-bar-track {
+    position: relative;
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.tdf-bar-fill {
+    position: absolute;
+    top: 0; bottom: 0;
+    background: linear-gradient(90deg, #60A5FA, #34D399, #FBBF24, #F87171);
+    border-radius: 3px;
+}
+
+/* ── Detail panel ── */
+.tdf-detail-panel {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    padding: 16px 16px 18px;
+    margin-bottom: 2px;
+    animation: tdf-expand 0.28s ease both;
+}
+@keyframes tdf-expand {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
